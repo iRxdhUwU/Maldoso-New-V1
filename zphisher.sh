@@ -332,7 +332,7 @@ tunnel_menu() {
 
 	printf "${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n\n"
 
-	read -p "${GREEN}➤ Selecione uma opção : ${RESET}" REPLY
+	read -p "${GREEN}➤ Selecione uma opção : " REPLY
 
 	case $REPLY in
 		1|01)
