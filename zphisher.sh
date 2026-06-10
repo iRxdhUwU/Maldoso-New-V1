@@ -402,10 +402,14 @@ custom_url() {
 ## Facebook
 site_facebook() {
 
-		printf "${PURPLE}┃${RESET} ${GREEN}${BOLD}➤ [01]${RESET} ${WHITE}${BOLD}Página Tradicional De Login${RESET}\n"
+	echo
 
-	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
+	printf "${PURPLE}┃${RESET} ${GREEN}${BOLD}➤ [01]${RESET} ${WHITE}${BOLD}Página Tradicional De Login${RESET}\n"
 
+	echo
+
+	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}" REPLY
+	
 	case $REPLY in 
 		1 | 01)
 			website="facebook"
