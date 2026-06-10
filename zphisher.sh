@@ -243,28 +243,19 @@ about() {
 ## Choose custom port
 cusport() {
 	echo
-
-	read -n1 -p "${GREEN}➤ Deseja utilizar uma porta personalizada? ${CYAN}[S/N] " P_ANS
-
-	if [[ ${P_ANS} =~ ^([sSyY])$ ]]; then
-		echo
-
-		read -n4 -p "${GREEN}➤ Informe uma porta de 4 dígitos ${CYAN}[1024-9999] ${GREEN}: " CU_P
-
-		if [[ ! -z ${CU_P} && "${CU_P}" =~ ^([1-9][0-9][0-9][0-9])$ && ${CU_P} -ge 1024 ]]; then
+	read -n1 -p "${RED}[${WHITE}?${RED}]${ORANGE} Do You Want A Custom Port ${GREEN}[${CYAN}y${GREEN}/${CYAN}N${GREEN}]: ${ORANGE}" P_ANS
+	if [[ ${P_ANS} =~ ^([yY])$ ]]; then
+		echo -e "\n"
+		read -n4 -p "${RED}[${WHITE}-${RED}]${ORANGE} Enter Your Custom 4-digit Port [1024-9999] : ${WHITE}" CU_P
+		if [[ ! -z  ${CU_P} && "${CU_P}" =~ ^([1-9][0-9][0-9][0-9])$ && ${CU_P} -ge 1024 ]]; then
 			PORT=${CU_P}
 			echo
-			printf "${GREEN}${ICON_OK} Porta definida: ${CYAN}${PORT}${RESET}\n"
 		else
-			printf "\n${RED}${ICON_ERR} Porta inválida: ${WHITE}${CU_P}${RED}. Tente novamente.${RESET}\n"
-			sleep 2
-			clear
-			banner
-			cusport
-		fi
-
-	else
-		printf "\n${CYAN}${ICON_INFO} Utilizando a porta padrão: ${GREEN}${PORT}${RESET}\n"
+			echo -ne "\n\n${RED}[${WHITE}!${RED}]${RED} Invalid 4-digit Port : $CU_P, Try Again...${WHITE}"
+			{ sleep 2; clear; banner_small; cusport; }
+		fi		
+	else 
+		echo -ne "\n\n${RED}[${WHITE}-${RED}]${BLUE} Using Default Port $PORT...${WHITE}\n"
 	fi
 }
 
