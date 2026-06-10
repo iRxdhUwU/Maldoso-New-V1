@@ -403,7 +403,7 @@ custom_url() {
 site_facebook() {
 	cat <<- EOF
 
-		printf "${PURPLE}┃${RESET} ${GREEN}${BOLD}➤ [01]${RESET} ${WHITE}${BOLD}Página Tradicional De Login${RESET}\n"
+	read -p "${PURPLE}┃${RESET} ${GREEN}${BOLD}➤ [01]${RESET} ${WHITE}${BOLD}Página Tradicional De Login${RESET}"
 
 	EOF
 
