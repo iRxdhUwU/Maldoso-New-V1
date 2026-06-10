@@ -401,11 +401,8 @@ custom_url() {
 
 ## Facebook
 site_facebook() {
-	cat <<- EOF
 
-	read -p "${PURPLE}┃${RESET} ${GREEN}${BOLD}➤ [01]${RESET} ${WHITE}${BOLD}Página Tradicional De Login${RESET}"
-
-	EOF
+		printf "${PURPLE}┃${RESET} ${GREEN}${BOLD}➤ [01]${RESET} ${WHITE}${BOLD}Página Tradicional De Login${RESET}\n"
 
 	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
 
