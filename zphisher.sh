@@ -321,21 +321,28 @@ start_localhost() {
 
 ## Tunnel selection
 tunnel_menu() {
-	{ clear; }
-	cat <<- EOF
+	clear
 
-		${RED}[${WHITE}01${RED}]${ORANGE} Localhost
+	printf "\n"
+	printf "${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
+	printf "${GREEN}${BOLD}:: MÉTODO DE ACESSO ::${RESET}\n"
+	printf "${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n\n"
 
-	EOF
+	printf "${CYAN}${BOLD}➤ [01] Localhost${RESET}\n\n"
 
-	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select a port forwarding service : ${BLUE}"
+	printf "${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n\n"
 
-	case $REPLY in 
-		1 | 01)
-			start_localhost;;
+	read -p "${GREEN}➤ Selecione uma opção : ${RESET}" REPLY
+
+	case $REPLY in
+		1|01)
+			start_localhost
+			;;
 		*)
-			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
-			{ sleep 1; tunnel_menu; };;
+			printf "\n${RED}${ICON_ERR} Opção inválida, tente novamente...${RESET}\n"
+			sleep 1
+			tunnel_menu
+			;;
 	esac
 }
 
