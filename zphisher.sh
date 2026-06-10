@@ -321,10 +321,20 @@ capture_data() {
 ## Start localhost
 start_localhost() {
 	cusport
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Initializing... ${GREEN}( ${CYAN}http://$HOST:$PORT ${GREEN})"
+
+	printf "\n${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
+	printf "${PURPLE}${ICON_WAIT}${RESET} ${GRAY}Inicializando servidor local...${RESET}\n"
+	printf "${CYAN}${ICON_NET}${RESET} ${GRAY}Endereço: ${CYAN}http://$HOST:$PORT${RESET}\n"
+	printf "${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
+
 	setup_site
-	{ sleep 1; clear; }
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Successfully Hosted at : ${GREEN}${CYAN}http://$HOST:$PORT ${GREEN}"
+
+	sleep 1
+	clear
+
+	printf "\n${GREEN}${ICON_OK}${RESET} ${GREEN}Servidor iniciado com sucesso!${RESET}\n"
+	printf "${CYAN}${ICON_NET}${RESET} ${GRAY}Acesse em:${RESET} ${CYAN}http://$HOST:$PORT${RESET}\n\n"
+
 	capture_data
 }
 
