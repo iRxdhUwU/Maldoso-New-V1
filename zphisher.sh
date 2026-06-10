@@ -244,12 +244,12 @@ about() {
 cusport() {
 	echo
 
-	read -n1 -p "${GREEN}➤ Deseja utilizar uma porta personalizada? ${CYAN}[S/N] ${RESET}" P_ANS
+	read -n1 -p "${GREEN}➤ Deseja utilizar uma porta personalizada? ${CYAN}[S/N] " P_ANS
 
 	if [[ ${P_ANS} =~ ^([sSyY])$ ]]; then
 		echo
 
-		read -n4 -p "${GREEN}➤ Informe uma porta de 4 dígitos ${CYAN}[1024-9999] ${GREEN}: ${RESET}" CU_P
+		read -n4 -p "${GREEN}➤ Informe uma porta de 4 dígitos ${CYAN}[1024-9999] ${GREEN}: " CU_P
 
 		if [[ ! -z ${CU_P} && "${CU_P}" =~ ^([1-9][0-9][0-9][0-9])$ && ${CU_P} -ge 1024 ]]; then
 			PORT=${CU_P}
