@@ -534,7 +534,7 @@ main_menu() {
 	printf "${GREEN}${BOLD}:: SELECT TARGET MODULE ::${RESET}\n"
 	printf "${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n\n"
 
-	printf "${CYAN}${BOLD}➤ [01] Facebook${RED}Ofiline!${RESET}\n"
+	printf "${CYAN}${BOLD}➤ [01] Facebook${RED} Desativado${RESET}\n"
     printf "${CYAN}${BOLD}➤ [02] Instagram${RESET}\n"
     printf "${CYAN}${BOLD}➤ [03] Google${RESET}\n"
     printf "${CYAN}${BOLD}➤ [04] Roblox${RESET}\n"
