@@ -530,17 +530,15 @@ main_menu() {
 	banner
 	echo
 
-	printf "${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n"
-	printf "${GREEN}${BOLD}:: SELECT TARGET MODULE ::${RESET}\n"
-	printf "${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}\n\n"
-
 	printf "${CYAN}${BOLD}➤ [01] Facebook${RED} Desativado${RESET}\n"
     printf "${CYAN}${BOLD}➤ [02] Instagram${RESET}\n"
     printf "${CYAN}${BOLD}➤ [03] Google${RESET}\n"
     printf "${CYAN}${BOLD}➤ [04] Roblox${RESET}\n"
-	printf "${CYAN}${BOLD}➤ [05] Nubank${RESET}\n"
+    printf "${CYAN}${BOLD}➤ [05] Nubank${RESET}\n"
 
-	printf "${CYAN}${BOLD}➤ [06] Maldoso Captura${RESET}\n"
+    printf "\n${GRAY}────────────────────────────────────────────${RESET}\n"
+    printf "${CYAN}${BOLD}➤ [06] Maldoso Captura${RESET}\n"
+    printf "${GRAY}────────────────────────────────────────────${RESET}\n"
 
 	printf "${GRAY}Press Ctrl + C to Exit${RESET}\n\n"
 
